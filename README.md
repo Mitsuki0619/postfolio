@@ -1,8 +1,13 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+## プロジェクトの起動
 
-First, run the development server:
+### 必要パッケージのインストール
+```bash
+yarn install
+```
+
+### 開発サーバーを立ち上げる:
 
 ```bash
 npm run dev
@@ -10,4 +15,7 @@ npm run dev
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+無事立ち上がれば、[http://localhost:3000](http://localhost:3000) にて確認可能
+
+### 環境変数ファイルの書き換え
+.envファイルを[Notion](https://www.notion.so/Supabase-59ef757438db428ea9547ebbfaddc82c#c5bee7891d074cada589f3d47e9734f3)に記載されている.envにすべて書き換える
