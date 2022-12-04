@@ -10,8 +10,6 @@ yarn install
 ### 開発サーバーを立ち上げる:
 
 ```bash
-npm run dev
-# or
 yarn dev
 ```
 
