@@ -16,9 +16,8 @@ import { MdAccountCircle, MdEmail } from "react-icons/md";
 
 export const Header: React.FC = () => {
   return (
-    <Box flexGrow={1}>
+    <Box>
       <Flex
-        minW={{ base: "70", xl: "350" }}
         h="full"
         direction="column"
         bgColor="white"
@@ -35,7 +34,7 @@ export const Header: React.FC = () => {
         >
           <Box w={"full"}>
             <Heading as={"h1"}>
-              <NextLink href="">Postfolio</NextLink>
+              <NextLink href="">P</NextLink>
             </Heading>
           </Box>
 
