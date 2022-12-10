@@ -28,6 +28,63 @@ export const TrendList: React.FC = () => {
             </Text>
           </Link>
         </WrapItem>
+        <WrapItem>
+          <Link
+            as={NextLink}
+            href="/"
+            w={"full"}
+            p={4}
+            _hover={{ bgColor: "gray.200" }}
+            transition={"all"}
+            transitionDuration={"0.3s"}
+            display={"block"}
+          >
+            <Heading as={"h4"} fontSize={18}>
+              トレンドテスト
+            </Heading>
+            <Text color={"gray.500"} fontSize={14}>
+              1223件の投稿
+            </Text>
+          </Link>
+        </WrapItem>
+        <WrapItem>
+          <Link
+            as={NextLink}
+            href="/"
+            w={"full"}
+            p={4}
+            _hover={{ bgColor: "gray.200" }}
+            transition={"all"}
+            transitionDuration={"0.3s"}
+            display={"block"}
+          >
+            <Heading as={"h4"} fontSize={18}>
+              トレンドテスト
+            </Heading>
+            <Text color={"gray.500"} fontSize={14}>
+              1223件の投稿
+            </Text>
+          </Link>
+        </WrapItem>
+        <WrapItem>
+          <Link
+            as={NextLink}
+            href="/"
+            w={"full"}
+            p={4}
+            _hover={{ bgColor: "gray.200" }}
+            transition={"all"}
+            transitionDuration={"0.3s"}
+            display={"block"}
+          >
+            <Heading as={"h4"} fontSize={18}>
+              トレンドテスト
+            </Heading>
+            <Text color={"gray.500"} fontSize={14}>
+              1223件の投稿
+            </Text>
+          </Link>
+        </WrapItem>
       </Wrap>
     </Flex>
   );
