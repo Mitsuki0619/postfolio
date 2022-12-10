@@ -5,7 +5,7 @@ import {
   Heading,
   Wrap,
   WrapItem,
-  Text,
+  Link,
 } from "@chakra-ui/react";
 import { HeaderLink } from "components/molecules/HeaderLink";
 import NextLink from "next/link";
@@ -33,8 +33,10 @@ export const Header: React.FC = () => {
         gap={"4vh"}
       >
         <Box w={"full"}>
-          <Heading as={"h1"}>
-            <NextLink href="">P</NextLink>
+          <Heading as={"h1"} textAlign={{base: "center", xl: "start"}}>
+            <Link as={NextLink} href="">
+              PF
+            </Link>
           </Heading>
         </Box>
 
