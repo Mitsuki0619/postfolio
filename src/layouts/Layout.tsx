@@ -1,4 +1,5 @@
-import { Flex } from "@chakra-ui/react";
+import { Box, Flex } from "@chakra-ui/react";
+import { Footer } from "components/organisms/Footer";
 import { Header } from "components/organisms/Header";
 import React from "react";
 
@@ -6,18 +7,12 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   return (
-    <Flex w="100vw" h="100vh" bgColor="gray.100">
+    <Flex w="100vw" h="100vh" bgColor="white" justify={"center"}>
       <Header />
-      <main>
-        <Flex
-          as="main"
-          grow={1}
-          minW={{ base: "xsm", md: "xl", xl: "2xl" }}
-          maxW={"2xl"}
-        >
-          {children}
-        </Flex>
-      </main>
+      <Flex as="main" grow={{ base: 1, md: "" }} maxW={"600px"} bgColor={"gray.100"}>
+        {children}
+      </Flex>
+      <Footer />
     </Flex>
   );
 };

@@ -1,7 +1,6 @@
 import React from "react";
 import NextLink from "next/link";
 import { Flex, Text } from "@chakra-ui/react";
-import { MdAccountCircle } from "react-icons/md";
 
 export const HeaderLink: React.FC<{
   text: string;
@@ -12,10 +11,9 @@ export const HeaderLink: React.FC<{
     <NextLink href={href}>
       <Flex
         rounded={"full"}
-        py={{ xl: "2" }}
-        pl={{ xl: "3" }}
-        pr={{ xl: "6" }}
-        p={"3"}
+        py={"2"}
+        pl={"3"}
+        pr={{ base: "3", xl: "6" }}
         _hover={{ bgColor: "gray.100" }}
         transition={"all"}
         transitionDuration={"0.3s"}
