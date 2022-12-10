@@ -6,11 +6,20 @@ import {
   Wrap,
   WrapItem,
   Link,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuList,
+  Avatar,
+  HStack,
+  VStack,
+  Text,
+  Spacer,
 } from "@chakra-ui/react";
 import { HeaderLink } from "components/molecules/HeaderLink";
 import NextLink from "next/link";
 import React from "react";
-import { BsFillPlusCircleFill } from "react-icons/bs";
+import { BsFillPlusCircleFill, BsThreeDots } from "react-icons/bs";
 import { FaBell, FaHome } from "react-icons/fa";
 import { MdAccountCircle, MdEmail } from "react-icons/md";
 
@@ -22,6 +31,7 @@ export const Header: React.FC = () => {
       direction="column"
       bgColor="white"
       pt={"8"}
+      pb={"3"}
       px={{ base: "2", md: "5" }}
       alignItems={"end"}
     >
@@ -33,7 +43,7 @@ export const Header: React.FC = () => {
         gap={"4vh"}
       >
         <Box w={"full"}>
-          <Heading as={"h1"} textAlign={{base: "center", xl: "start"}}>
+          <Heading as={"h1"} textAlign={{ base: "center", xl: "start" }}>
             <Link as={NextLink} href="">
               PF
             </Link>
@@ -85,6 +95,47 @@ export const Header: React.FC = () => {
           </Box>
         </Box>
       </Flex>
+      <Menu>
+        <MenuButton
+          _hover={{ bgColor: "gray.100" }}
+          rounded={"full"}
+          transition={"all"}
+          transitionDuration={"0.5s"}
+          py={{ base: "", xl: "2.5" }}
+          px={{ base: "", xl: "4" }}
+          w={{ base: "", xl: "full" }}
+        >
+          <Flex w={{ base: "", xl: "full" }} alignItems={"center"}>
+            <Avatar name="Kent Dodds" src="https://bit.ly/kent-c-dodds" />
+            <Box
+              gap={0}
+              display={{ base: "none", xl: "block" }}
+              marginLeft={"2"}
+            >
+              <Text fontWeight={"bold"}>ユーザー</Text>
+              <Text color={"gray.500"} fontSize={"sm"}>
+                @user_1
+              </Text>
+            </Box>
+            <Spacer />
+            <Box display={{ base: "none", xl: "block" }}>
+              <BsThreeDots />
+            </Box>
+          </Flex>
+        </MenuButton>
+        <MenuList>
+          <MenuItem>
+            <Link as={NextLink} href="">
+              設定
+            </Link>
+          </MenuItem>
+          <MenuItem>
+            <Link as={NextLink} href="" color={"red.500"}>
+              ログアウト
+            </Link>
+          </MenuItem>
+        </MenuList>
+      </Menu>
     </Flex>
   );
 };
