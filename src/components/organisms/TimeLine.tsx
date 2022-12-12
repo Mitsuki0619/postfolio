@@ -1,0 +1,140 @@
+import {
+  Avatar,
+  Box,
+  Button,
+  Flex,
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+  Text,
+} from "@chakra-ui/react";
+import Link from "next/link";
+import React from "react";
+import { FaRegComment } from "react-icons/fa";
+import { AiOutlineHeart } from "react-icons/ai";
+import { BsThreeDots } from "react-icons/bs";
+
+type Props = {
+  avatar?: string;
+  name?: string;
+  username?: string;
+  posttime?: number;
+  textcontent?: string;
+};
+
+export const TimeLine: React.FC<Props> = (props) => {
+  const {
+    avatar,
+    name = "ユーザー",
+    username = "user_@1",
+    posttime,
+    textcontent,
+  } = props;
+
+  return (
+    <>
+      <Flex
+        minH={"30vh"}
+        w={"100%"}
+        bg={"white"}
+        p={"10px"}
+        transition={"all 0.3s"}
+        _hover={{ bg: "gray.100" }}
+      >
+        <Link href={""}>
+          <Box pr={3} color={"gray"}>
+            <Avatar src={avatar} />
+          </Box>
+        </Link>
+
+        <Flex direction={"column"} flex={1}>
+          <Flex
+            gap={15}
+            h={"20%"}
+            fontSize={{ base: ".6rem", sm: ".8rem", md: "1rem" }}
+          >
+            <Link href={""}>
+              <Text
+                fontWeight={"bold"}
+                transition={"all .1s"}
+                _hover={{ borderBottom: "1px solid black" }}
+              >
+                {name}
+              </Text>
+            </Link>
+            <Link href={""}>
+              <Text
+                as={"small"}
+                color={"gray"}
+                transition={"all .1s"}
+                _hover={{ borderBottom: "1px solid gray" }}
+              >
+                @{username}
+              </Text>
+            </Link>
+            <Link href={""}>
+              <Text
+                as={"small"}
+                color={"gray"}
+                transition={"all .1s"}
+                _hover={{ borderBottom: "1px solid gray" }}
+              >
+                {posttime}
+              </Text>
+            </Link>
+            <Flex flex={1} justifyContent={"end"}>
+              <Popover>
+                <PopoverTrigger>
+                  <Button
+                    bg={"transparent"}
+                    transition={"all .5s"}
+                    _hover={{ bg: "teal.100", color: "teal.500" }}
+                    p={"0 8px"}
+                    color={"gray"}
+                    rounded={"full"}
+                  >
+                    <BsThreeDots />
+                  </Button>
+                </PopoverTrigger>
+                <PopoverContent w={"70px"} p={"0"}>
+                  <Button bg={"white"} fontSize={".6rem"} borderRadius={"none"}>
+                    編集
+                  </Button>
+                  <Button
+                    bg={"white"}
+                    fontSize={".6rem"}
+                    color={"red"}
+                    borderRadius={"none"}
+                  >
+                    削除
+                  </Button>
+                </PopoverContent>
+              </Popover>
+            </Flex>
+          </Flex>
+          <Box minH={"75%"}>
+            <Text
+              fontSize={".7rem"}
+              fontWeight={"lighter"}
+              w={"100%"}
+              wordBreak={"break-all"}
+              whiteSpace={"pre-line"}
+            >
+              {textcontent}
+            </Text>
+          </Box>
+          <Flex
+            h={"10%"}
+            alignItems={"center"}
+            justifyContent={"space-around"}
+            gap={50}
+            color={"gray"}
+          >
+            <FaRegComment />
+            <AiOutlineHeart />
+          </Flex>
+        </Flex>
+      </Flex>
+    </>
+  );
+};
