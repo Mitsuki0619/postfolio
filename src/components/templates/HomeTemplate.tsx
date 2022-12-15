@@ -1,5 +1,5 @@
 import { Box, Button, Flex } from "@chakra-ui/react";
-import { PostBox } from "components/organisms/PostBox";
+import { PostForm } from "components/organisms/PostForm";
 import { Layout } from "layouts/Layout";
 import React from "react";
 import { PostList } from "components/organisms/PostList";
@@ -14,21 +14,20 @@ export const HomeTemplate: React.FC = () => {
   return (
     <Layout>
       <Box
-        as={"header"}
+        as={"h2"}
         p={3}
         fontSize={"1.5rem"}
-        bg={"white"}
+        bg={"rgba(255,255,255,.9)"}
         position={"sticky"}
         zIndex={"100"}
         top={"0"}
-        borderBottom={"1px solid gray"}
         cursor={"pointer"}
         onClick={returnTop}
         fontWeight={"bold"}
       >
         HOME
       </Box>
-      <PostBox />
+      <PostForm />
       <PostList />
     </Layout>
   );

@@ -17,22 +17,23 @@ import { BsThreeDots } from "react-icons/bs";
 type Props = {
   avatar?: string;
   name?: string;
-  username?: string;
-  posttime?: number;
-  textcontent?: string;
+  userName?: string;
+  postTime?: number;
+  textContent?: string;
 };
 
 export const PostItem: React.FC<Props> = (props) => {
-  const { avatar, name, username, posttime, textcontent } = props;
+  const { avatar, name, userName, postTime, textContent } = props;
 
   return (
     <Flex
-      minH={"25vh"}
+      minH={"35vh"}
       w={"100%"}
       bg={"white"}
-      p={"10px"}
+      p={"20px"}
       transition={"all 0.3s"}
       _hover={{ bg: "gray.100" }}
+      borderBottom={"1px solid #e6ecf0"}
     >
       <Link href={""}>
         <Box pr={3} color={"gray"}>
@@ -42,7 +43,7 @@ export const PostItem: React.FC<Props> = (props) => {
 
       <Flex direction={"column"} flex={1}>
         <Flex
-          gap={15}
+          gap={"15"}
           h={"20%"}
           fontSize={{ base: ".6rem", sm: ".8rem", md: "1rem" }}
         >
@@ -62,7 +63,7 @@ export const PostItem: React.FC<Props> = (props) => {
               transition={"all .1s"}
               _hover={{ borderBottom: "1px solid gray" }}
             >
-              @{username}
+              @{userName}
             </Text>
           </Link>
           <Link href={""}>
@@ -72,10 +73,10 @@ export const PostItem: React.FC<Props> = (props) => {
               transition={"all .1s"}
               _hover={{ borderBottom: "1px solid gray" }}
             >
-              {posttime}
+              {postTime}
             </Text>
           </Link>
-          <Flex flex={1} justifyContent={"end"}>
+          <Flex flex={1} justifyContent={"end"} alignItems={"center"}>
             <Popover>
               <PopoverTrigger>
                 <Button
@@ -85,17 +86,18 @@ export const PostItem: React.FC<Props> = (props) => {
                   p={"0 8px"}
                   color={"gray"}
                   rounded={"full"}
+                  transform={"translateY(-10%)"}
                 >
                   <BsThreeDots />
                 </Button>
               </PopoverTrigger>
-              <PopoverContent w={"70px"} p={"0"}>
-                <Button bg={"white"} fontSize={".6rem"} borderRadius={"none"}>
+              <PopoverContent w={"100px"}>
+                <Button bg={"white"} fontSize={"16px"} borderRadius={"none"}>
                   編集
                 </Button>
                 <Button
                   bg={"white"}
-                  fontSize={".6rem"}
+                  fontSize={"16px"}
                   color={"red"}
                   borderRadius={"none"}
                 >
@@ -107,13 +109,12 @@ export const PostItem: React.FC<Props> = (props) => {
         </Flex>
         <Box minH={"75%"}>
           <Text
-            fontSize={".8rem"}
-            fontWeight={"lighter"}
+            fontSize={"16px"}
             w={"100%"}
             wordBreak={"break-all"}
             whiteSpace={"pre-line"}
           >
-            {textcontent}
+            {textContent}
           </Text>
         </Box>
         <Flex
