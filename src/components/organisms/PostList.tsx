@@ -6,16 +6,16 @@ const datas = [
   {
     avatar: "",
     name: "ユーザー1",
-    username: "user_1",
-    posttime: 1,
-    textcontent: "hello !",
+    user_name: "user_1",
+    post_time: '2時間前',
+    content: "これはダミーテキストです。This is a Dummy Text.これはダミーテキストです。This is a Dummy Text.これはダミーテキストです。This is a Dummy Text.これはダミーテキストです。This is a Dummy Text.",
   },
   {
     avatar: "",
     name: "ユーザー2",
-    username: "user_3",
-    posttime: 2,
-    textcontent: "hello !!",
+    user_name: "user_3",
+    post_time: '5分前',
+    content: "hello !!",
   },
 ];
 
@@ -24,12 +24,12 @@ export const PostList = () => {
     <>
       {datas.map((data) => (
         <PostItem
-          key={data.posttime}
+          key={data.post_time}
           avatar={data.avatar}
           name={data.name}
-          username={data.username}
-          posttime={data.posttime}
-          textcontent={data.textcontent}
+          userName={data.user_name}
+          postTime={data.post_time}
+          textContent={data.content}
         />
       ))}
     </>

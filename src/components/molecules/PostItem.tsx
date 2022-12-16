@@ -1,14 +1,16 @@
 import {
   Avatar,
   Box,
-  Button,
   Flex,
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
+  HStack,
+  Link,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuList,
   Text,
 } from "@chakra-ui/react";
-import Link from "next/link";
+import NextLink from "next/link";
 import React from "react";
 import { FaRegComment } from "react-icons/fa";
 import { AiOutlineHeart } from "react-icons/ai";
@@ -18,7 +20,7 @@ type Props = {
   avatar?: string;
   name?: string;
   userName?: string;
-  postTime?: number;
+  postTime?: string;
   textContent?: string;
 };
 
@@ -27,105 +29,85 @@ export const PostItem: React.FC<Props> = (props) => {
 
   return (
     <Flex
-      minH={"35vh"}
-      w={"100%"}
+      as={"article"}
       bg={"white"}
-      p={"20px"}
+      p={{ base: "2", sm: "4" }}
       transition={"all 0.3s"}
       _hover={{ bg: "gray.100" }}
       borderBottom={"1px solid #e6ecf0"}
+      gap={"4"}
+      w={"full"}
+      cursor={"pointer"}
     >
-      <Link href={""}>
-        <Box pr={3} color={"gray"}>
-          <Avatar src={avatar} />
-        </Box>
+      {/* アバター */}
+      <Link as={NextLink} href={"/"} h={"min"}>
+        <Avatar src={avatar} />
       </Link>
 
-      <Flex direction={"column"} flex={1}>
-        <Flex
-          gap={"15"}
-          h={"20%"}
-          fontSize={{ base: ".6rem", sm: ".8rem", md: "1rem" }}
-        >
-          <Link href={""}>
-            <Text
-              fontWeight={"bold"}
-              transition={"all .1s"}
-              _hover={{ borderBottom: "1px solid black" }}
-            >
-              {name}
-            </Text>
-          </Link>
-          <Link href={""}>
-            <Text
-              as={"small"}
+      <Flex direction={"column"} flex={"1"}>
+        <Flex justifyContent={"space-between"}>
+          <HStack alignItems={"end"} h={'min'}>
+            {/* ユーザー名 */}
+            <Link href={""} as={NextLink}>
+              <Text fontWeight={"bold"} transition={"all .1s"} fontSize={'18px'}>
+                {name}
+              </Text>
+            </Link>
+
+            {/* ユーザーID */}
+            <Link href={""} as={NextLink}>
+              <Text color={"gray"} transition={"all .1s"} fontSize={'14px'}>
+                @{userName}
+              </Text>
+            </Link>
+
+            {/* 投稿時間 */}
+            <Link href={""} as={NextLink}>
+              <Text color={"gray"} transition={"all .1s"} fontSize={'14px'}>
+                {postTime}
+              </Text>
+            </Link>
+          </HStack>
+
+          {/* 編集、削除メニュー */}
+          <Menu>
+            <MenuButton
+              bg={"transparent"}
+              transition={"all .5s"}
+              p={"2"}
               color={"gray"}
-              transition={"all .1s"}
-              _hover={{ borderBottom: "1px solid gray" }}
+              rounded={"full"}
             >
-              @{userName}
-            </Text>
-          </Link>
-          <Link href={""}>
-            <Text
-              as={"small"}
-              color={"gray"}
-              transition={"all .1s"}
-              _hover={{ borderBottom: "1px solid gray" }}
-            >
-              {postTime}
-            </Text>
-          </Link>
-          <Flex flex={1} justifyContent={"end"} alignItems={"center"}>
-            <Popover>
-              <PopoverTrigger>
-                <Button
-                  bg={"transparent"}
-                  transition={"all .5s"}
-                  _hover={{ bg: "teal.100", color: "teal.500" }}
-                  p={"0 8px"}
-                  color={"gray"}
-                  rounded={"full"}
-                  transform={"translateY(-10%)"}
-                >
-                  <BsThreeDots />
-                </Button>
-              </PopoverTrigger>
-              <PopoverContent w={"100px"}>
-                <Button bg={"white"} fontSize={"16px"} borderRadius={"none"}>
-                  編集
-                </Button>
-                <Button
-                  bg={"white"}
-                  fontSize={"16px"}
-                  color={"red"}
-                  borderRadius={"none"}
-                >
-                  削除
-                </Button>
-              </PopoverContent>
-            </Popover>
-          </Flex>
+              <BsThreeDots />
+            </MenuButton>
+            <MenuList>
+              <MenuItem>編集</MenuItem>
+              <MenuItem color={"red.500"}>削除</MenuItem>
+            </MenuList>
+          </Menu>
         </Flex>
-        <Box minH={"75%"}>
-          <Text
-            fontSize={"16px"}
-            w={"100%"}
-            wordBreak={"break-all"}
-            whiteSpace={"pre-line"}
-          >
-            {textContent}
-          </Text>
-        </Box>
-        <Flex
-          h={"10%"}
-          alignItems={"center"}
-          justifyContent={"space-around"}
-          gap={50}
-          color={"gray"}
-        >
-          <FaRegComment />
-          <AiOutlineHeart />
+        <Flex flexDirection={"column"} gap={"6"}>
+          {/* 投稿内容 */}
+          <Box>
+            <Text wordBreak={"break-all"} whiteSpace={"pre-line"}>
+              {textContent}
+            </Text>
+          </Box>
+          <Flex alignItems={"center"} color={"gray"}>
+            <Box flex={"1"}>
+              {/* コメントボタン */}
+              <Box as={"button"}>
+                <FaRegComment size={20} />
+              </Box>
+            </Box>
+
+            <Box flex={"1"}>
+              {/* いいねボタン */}
+              <Box as={"button"}>
+                <AiOutlineHeart size={24} />
+              </Box>
+            </Box>
+          </Flex>
         </Flex>
       </Flex>
     </Flex>

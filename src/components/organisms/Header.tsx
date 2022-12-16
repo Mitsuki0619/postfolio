@@ -34,6 +34,7 @@ export const Header: React.FC = () => {
       pb={"3"}
       px={{ base: "2", md: "5" }}
       alignItems={"end"}
+      borderRight={'1px solid #e6ecf0'}
     >
       <Flex
         direction="column"
