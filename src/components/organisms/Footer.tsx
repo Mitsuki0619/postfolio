@@ -26,6 +26,7 @@ export const Footer: React.FC = () => {
       pt={8}
       pb={2}
       px={{ base: 3, lg: 5 }}
+      borderLeft={'1px solid #e6ecf0'}
     >
       <Flex
         direction={"column"}
