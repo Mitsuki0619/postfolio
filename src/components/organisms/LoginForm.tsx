@@ -12,13 +12,7 @@ import { FaUserAlt, FaLock } from "react-icons/fa";
 
 export const LoginForm = () => {
   return (
-    <Flex
-      h={"100vh"}
-      w={"100vw"}
-      justify={"center"}
-      alignItems={"center"}
-      bg={{ sm: "white", md: "#eaeaea" }}
-    >
+   
       <form>
         <Stack
           spacing={10}
@@ -31,10 +25,11 @@ export const LoginForm = () => {
             ログイン
           </Text>
 
-          {/*eslint-disable*/}
           <FormControl>
             <InputGroup>
-              <InputLeftElement children={<FaUserAlt color="gray" />} />
+              <InputLeftElement>
+                <FaUserAlt color="gray" />
+              </InputLeftElement>
               <Input
                 type="email"
                 placeholder="メールアドレス"
@@ -44,7 +39,9 @@ export const LoginForm = () => {
           </FormControl>
           <FormControl>
             <InputGroup>
-              <InputLeftElement children={<FaLock color="gray" />} />
+              <InputLeftElement>
+                <FaLock color="gray" />
+              </InputLeftElement>
               <Input
                 type="password"
                 placeholder="パスワード"
@@ -52,13 +49,12 @@ export const LoginForm = () => {
               />
             </InputGroup>
           </FormControl>
-          {/*eslint-disable*/}
 
           <Button colorScheme={"teal"} rounded={"full"}>
             ログイン
           </Button>
         </Stack>
       </form>
-    </Flex>
+    
   );
 };
