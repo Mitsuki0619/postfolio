@@ -1,0 +1,30 @@
+type User {
+  id: String!
+  email: String!
+  name: String
+  password: String!
+  posts: [Post]
+}
+
+type Post {
+  id: Int!
+  content: String
+  userId: String!
+  user: User!
+  createdAt: String!
+  updatedAt: String!
+}
+
+type Query {
+  allPosts: [Post]!
+  userPosts(userId: String!): [Post]!
+  postDetail(postId: Int!): Post!
+  searchPosts(word: String!): [Post]!
+}
+
+type Mutation {
+  createUser(name: String!, email: String!): User!
+  createPost(content: String!, userId: String!): Post!
+  updatePost(id: String!, content: String!): Post!
+  deletePost(id: String!): Post!
+}
