@@ -46,24 +46,28 @@ export const PostItem: React.FC<Props> = (props) => {
 
       <Flex direction={"column"} flex={"1"}>
         <Flex justifyContent={"space-between"}>
-          <HStack alignItems={"end"} h={'min'}>
+          <HStack alignItems={"end"} h={"min"}>
             {/* ユーザー名 */}
             <Link href={""} as={NextLink}>
-              <Text fontWeight={"bold"} transition={"all .1s"} fontSize={'18px'}>
+              <Text
+                fontWeight={"bold"}
+                transition={"all .1s"}
+                fontSize={"18px"}
+              >
                 {name}
               </Text>
             </Link>
 
             {/* ユーザーID */}
             <Link href={""} as={NextLink}>
-              <Text color={"gray"} transition={"all .1s"} fontSize={'14px'}>
+              <Text color={"gray"} transition={"all .1s"} fontSize={"14px"}>
                 @{userName}
               </Text>
             </Link>
 
             {/* 投稿時間 */}
             <Link href={""} as={NextLink}>
-              <Text color={"gray"} transition={"all .1s"} fontSize={'14px'}>
+              <Text color={"gray"} transition={"all .1s"} fontSize={"14px"}>
                 {postTime}
               </Text>
             </Link>

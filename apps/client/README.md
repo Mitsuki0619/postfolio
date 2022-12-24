@@ -3,6 +3,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 ## プロジェクトの起動
 
 ### 必要パッケージのインストール
+
 ```bash
 yarn install
 ```
@@ -16,4 +17,5 @@ yarn dev
 無事立ち上がれば、[http://localhost:3000](http://localhost:3000) にて確認可能
 
 ### 環境変数ファイルの書き換え
-.envファイルをルート直下に作成し、Notionに記載されている.envに書き換える
+
+.env ファイルをルート直下に作成し、Notion に記載されている.env に書き換える
