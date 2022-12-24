@@ -5,7 +5,7 @@ const config: CodegenConfig = {
   documents: "apps/client/src/**/*.tsx",
   generates: {
     "apps/client/src/graphql/__generated__/models.ts": {
-      plugins: ["typescript", "typescript-operations"],
+      plugins: ["typescript", "typescript-operations", "typescript-urql"],
     },
     "apps/server/graphql/__generated__/models.ts": {
       plugins: ["typescript", "typescript-resolvers"],

@@ -18,14 +18,14 @@ import { BsThreeDots } from "react-icons/bs";
 
 type Props = {
   avatar?: string;
-  name?: string;
   userName?: string;
-  postTime?: string;
-  textContent?: string;
+  userId?: string;
+  createdAt?: string;
+  content?: string | null;
 };
 
 export const PostItem: React.FC<Props> = (props) => {
-  const { avatar, name, userName, postTime, textContent } = props;
+  const { avatar, userName, userId, createdAt, content } = props;
 
   return (
     <Flex
@@ -54,21 +54,21 @@ export const PostItem: React.FC<Props> = (props) => {
                 transition={"all .1s"}
                 fontSize={"18px"}
               >
-                {name}
+                {userName}
               </Text>
             </Link>
 
             {/* ユーザーID */}
             <Link href={""} as={NextLink}>
               <Text color={"gray"} transition={"all .1s"} fontSize={"14px"}>
-                @{userName}
+                @{userId}
               </Text>
             </Link>
 
             {/* 投稿時間 */}
             <Link href={""} as={NextLink}>
               <Text color={"gray"} transition={"all .1s"} fontSize={"14px"}>
-                {postTime}
+                {createdAt}
               </Text>
             </Link>
           </HStack>
@@ -94,7 +94,7 @@ export const PostItem: React.FC<Props> = (props) => {
           {/* 投稿内容 */}
           <Box>
             <Text wordBreak={"break-all"} whiteSpace={"pre-line"}>
-              {textContent}
+              {content}
             </Text>
           </Box>
           <Flex alignItems={"center"} color={"gray"}>

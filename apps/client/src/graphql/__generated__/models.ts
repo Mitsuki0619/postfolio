@@ -1,8 +1,11 @@
+import gql from 'graphql-tag';
+import * as Urql from 'urql';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
+export type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
@@ -83,4 +86,25 @@ export type User = {
   name?: Maybe<Scalars['String']>;
   password: Scalars['String'];
   posts?: Maybe<Array<Maybe<Post>>>;
+};
+
+export type AllPostsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type AllPostsQuery = { __typename?: 'Query', allPosts: Array<{ __typename?: 'Post', id: number, content?: string | null, createdAt: string, userId: string } | null> };
+
+
+export const AllPostsDocument = gql`
+    query allPosts {
+  allPosts {
+    id
+    content
+    createdAt
+    userId
+  }
+}
+    `;
+
+export function useAllPostsQuery(options?: Omit<Urql.UseQueryArgs<AllPostsQueryVariables>, 'query'>) {
+  return Urql.useQuery<AllPostsQuery, AllPostsQueryVariables>({ query: AllPostsDocument, ...options });
 };

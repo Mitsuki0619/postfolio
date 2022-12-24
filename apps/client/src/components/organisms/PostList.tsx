@@ -1,5 +1,8 @@
 import { PostItem } from "components/molecules/PostItem";
+import { AllPostsQuery } from "graphql/__generated__/models";
 import React from "react";
+import { useQuery, useSubscription } from "urql";
+import { gql } from "graphql-tag";
 
 // データ取得(例)
 const datas = [
@@ -20,17 +23,34 @@ const datas = [
   },
 ];
 
+const AllPosts = gql`
+  query allPosts {
+    allPosts {
+      id
+      content
+      createdAt
+      userId
+    }
+  }
+`;
+
 export const PostList = () => {
+  const [allPostsResult] = useQuery<AllPostsQuery>({
+    query: AllPosts,
+  });
+
+  const allPosts = allPostsResult.data?.allPosts;
+
   return (
     <>
-      {datas.map((data) => (
+      {allPosts?.map((post) => (
         <PostItem
-          key={data.post_time}
-          avatar={data.avatar}
-          name={data.name}
-          userName={data.user_name}
-          postTime={data.post_time}
-          textContent={data.content}
+          key={post?.id}
+          avatar={datas[0].avatar}
+          userName={datas[0].name}
+          userId={post?.userId}
+          createdAt={post?.createdAt}
+          content={post?.content}
         />
       ))}
     </>

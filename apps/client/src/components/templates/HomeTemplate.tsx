@@ -1,8 +1,9 @@
-import { Box, Button, Flex } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import { PostForm } from "components/organisms/PostForm";
 import { Layout } from "layouts/Layout";
-import React from "react";
+import React, { Suspense } from "react";
 import { PostList } from "components/organisms/PostList";
+import { ErrorBoundary } from "react-error-boundary";
 
 export const HomeTemplate: React.FC = () => {
   const returnTop = () => {
@@ -28,7 +29,20 @@ export const HomeTemplate: React.FC = () => {
         HOME
       </Box>
       <PostForm />
-      <PostList />
+      <ErrorBoundary FallbackComponent={ErrorFallback}>
+        <Suspense fallback={"loading"}>
+          <PostList />
+        </Suspense>
+      </ErrorBoundary>
     </Layout>
   );
 };
+
+function ErrorFallback() {
+  return (
+    <div role="alert">
+      <p>Something went wrong:</p>
+      <pre>error</pre>
+    </div>
+  );
+}

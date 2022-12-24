@@ -1,6 +1,6 @@
 datasource db {
-  provider          = "postgresql"
-  url               = env("DATABASE_URL")
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 generator client {
@@ -47,8 +47,8 @@ model User {
   messages      Message[]
   messageRooms  MessageRoom[]
   Notifications Notification[]
-  createdAt DateTime    @default(now())
-    updatedAt DateTime    @default(now())
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @default(now())
 }
 
 model VerificationToken {
@@ -81,19 +81,18 @@ model Post {
   postTags  PostTags[]
 }
 
-
 model Tag {
-  id        Int           @id @default(autoincrement())
-  name      String
-  posts     PostTags[]
-  post      Post?         @relation(fields: [postId], references: [id])
-  postId    Int?
+  id     Int        @id @default(autoincrement())
+  name   String
+  posts  PostTags[]
+  post   Post?      @relation(fields: [postId], references: [id])
+  postId Int?
 }
 
 model PostTags {
   post       Post     @relation(fields: [postId], references: [id])
   postId     Int
-  tag        Tag     @relation(fields: [tagId], references: [id])
+  tag        Tag      @relation(fields: [tagId], references: [id])
   tagId      Int
   assignedAt DateTime @default(now())
 
