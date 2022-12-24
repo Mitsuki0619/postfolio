@@ -1,4 +1,3 @@
-import { PrismaClient } from "@prisma/client";
 import { Mutation } from "./mutation";
 import { Query } from "./query";
 
