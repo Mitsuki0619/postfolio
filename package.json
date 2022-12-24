@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "build": "turbo run build lint",
-    "dev": "turbo run dev --parallel&&enerate --watch",
+    "dev": "turbo run dev --parallel&&generate --watch",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "generate": "graphql-codegen"
