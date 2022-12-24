@@ -4,7 +4,6 @@ const prisma = new PrismaClient();
 
 export const resolvers = {
   Query: {
-
     /**
      * 全ポスト取得
      */
@@ -14,7 +13,7 @@ export const resolvers = {
 
     /**
      * ユーザーのポスト一覧取得
-     * @param userId ユーザーID 
+     * @param userId ユーザーID
      */
     userPosts: (_: undefined, { userId }: { userId: string }) => {
       return prisma.post.findMany({

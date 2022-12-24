@@ -22,7 +22,7 @@ export const PostForm = () => {
             direction={"column"}
             justifyContent={"space-between"}
             w={"full"}
-            gap={'4'}
+            gap={"4"}
           >
             {/* 投稿内容入力フィールド */}
             <Textarea
