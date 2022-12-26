@@ -29,6 +29,7 @@
     "react-icons": "^4.7.1",
     "react-relay": "^14.1.0",
     "recoil": "^0.7.6",
+    "recoil-relay": "^0.1.0",
     "relay-compiler-language-typescript": "^15.0.1",
     "relay-nextjs": "^1.0.1",
     "relay-runtime": "^14.1.0",
