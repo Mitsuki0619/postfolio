@@ -1,6 +1,9 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
+import { RelayEnvironmentProvider } from "react-relay";
+import { getInitialPreloadedQuery, getRelayProps } from "relay-nextjs/app";
+import { getClientEnvironment } from "../lib/client_environment";
 
 const theme = extendTheme({
   fonts: {
@@ -11,8 +14,10 @@ const theme = extendTheme({
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <ChakraProvider theme={theme}>
-      <Component {...pageProps} />
-    </ChakraProvider>
+    <RelayEnvironmentProvider environment={}>
+      <ChakraProvider theme={theme}>
+        <Component {...pageProps} />
+      </ChakraProvider>
+    </RelayEnvironmentProvider>
   );
 }
