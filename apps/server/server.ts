@@ -2,7 +2,7 @@ import { makeExecutableSchema } from "@graphql-tools/schema";
 import express from "express";
 import { graphqlHTTP } from "express-graphql";
 import { readFileSync } from "fs";
-import { resolvers } from "./resolvers";
+import { resolvers } from "./graphql/resolvers";
 
 const typeDefs = readFileSync("graphql/schema/schema.graphql", {
   encoding: "utf8",
