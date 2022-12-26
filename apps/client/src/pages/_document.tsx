@@ -1,9 +1,22 @@
 // pages/_document.js
 
 import { ColorModeScript, theme } from "@chakra-ui/react";
-import { Html, Head, Main, NextScript } from "next/document";
+import { createRelayDocument, RelayDocument } from "relay-nextjs/document";
+import NextDocument, {
+  Html,
+  Head,
+  Main,
+  NextScript,
+  DocumentContext,
+} from "next/document";
 
-export default function Document() {
+interface DocumentProps {
+  relayDocument: RelayDocument;
+}
+
+const Document = (props: DocumentProps) => {
+  const { relayDocument } = props;
+
   return (
     <Html lang="en">
       <Head>
@@ -11,6 +24,7 @@ export default function Document() {
           href="https://fonts.googleapis.com/css?family=Noto+Sans+JP"
           rel="stylesheet"
         />
+        <relayDocument.Script />
       </Head>
       <body>
         <ColorModeScript initialColorMode={theme.config.initialColorMode} />
@@ -19,4 +33,23 @@ export default function Document() {
       </body>
     </Html>
   );
-}
+};
+
+Document.getInitialProps = async (ctx: DocumentContext) => {
+  const relayDocument = createRelayDocument();
+
+  const renderPage = ctx.renderPage;
+  ctx.renderPage = () =>
+    renderPage({
+      enhanceApp: (App) => relayDocument.enhance(App),
+    });
+
+  const initialProps = await NextDocument.getInitialProps(ctx);
+
+  return {
+    ...initialProps,
+    relayDocument,
+  };
+};
+
+export default Document;

@@ -1,16 +1,22 @@
 import { graphql } from "graphql";
 import { withHydrateDatetime } from "relay-nextjs/date";
-import { Environment, GraphQLResponse, Network, RecordSource, Store } from "relay-runtime";
+import {
+  Environment,
+  GraphQLResponse,
+  Network,
+  RecordSource,
+  Store,
+} from "relay-runtime";
+import fetchGraphQL from "./fetchGraphQL";
 
 // Relay is not prescriptive about how GraphQL requests are made.
 // This is an example showing how to request GraphQL data.
 // You should fill this in with how to make requests to your GraphQL
 // API of choice.
-import { makeGraphQLRequest } from "./my_graphql_api";
 
 export function createServerNetwork() {
   return Network.create(async (text, variables) => {
-    const results = await makeGraphQLRequest(text, variables);
+    const results = await fetchGraphQL(text, variables);
 
     const data = JSON.parse(
       JSON.stringify(results),

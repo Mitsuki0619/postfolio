@@ -12,9 +12,17 @@ const theme = extendTheme({
   },
 });
 
+const clientEnv = getClientEnvironment();
+const initialPreloadedQuery = getInitialPreloadedQuery({
+  createClientEnvironment: () => getClientEnvironment()!,
+});
+
 export default function App({ Component, pageProps }: AppProps) {
+  const relayProps = getRelayProps(pageProps, initialPreloadedQuery);
+  const env = relayProps.preloadedQuery?.environment ?? clientEnv!;
+
   return (
-    <RelayEnvironmentProvider environment={}>
+    <RelayEnvironmentProvider environment={env}>
       <ChakraProvider theme={theme}>
         <Component {...pageProps} />
       </ChakraProvider>

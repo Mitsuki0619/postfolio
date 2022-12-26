@@ -1,16 +1,16 @@
-const webpack = require("webpack");
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  webpack: (config, { isServer, webpack }) => {
-    if (!isServer) {
-      // Ensures no server modules are included on the client.
-      config.plugins.push(
-        new webpack.IgnorePlugin({ resourceRegExp: /lib\/server/ })
-      );
-    }
+  compiler: {
+    relay: {
+      // This should match relay.config.js
+      src: "./src",
+      schema: "../server/graphql/schema/schema.graphql",
+      exclude: ["**/node_modules/**", "**/__mocks__/**", "**/__generated__/**"],
+      artifactDirectory: "src/graphql/queries/__generated__",
+      language: "typescript",
+    },
   },
 };
 
