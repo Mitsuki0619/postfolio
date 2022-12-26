@@ -1,7 +1,6 @@
 module.exports = {
   root: true,
   extends: ["custom"],
-  plugins: ["react-hooks"],
   rules: {
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": [
