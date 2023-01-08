@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "ts-node server.ts",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "generate": "graphql-codegen"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
@@ -23,10 +22,6 @@
     "typescript": "^4.9.4"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "^2.16.1",
-    "@graphql-codegen/introspection": "^2.2.3",
-    "@graphql-codegen/typescript": "^2.8.5",
-    "@graphql-codegen/typescript-resolvers": "^2.7.10",
     "@types/cors": "^2.8.13",
     "@types/node": "^18.11.17",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
