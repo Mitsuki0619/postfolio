@@ -1,3 +1,3 @@
-import { MutationResolvers } from "graphql/__generated__/graphql";
+import { MutationResolvers } from "../../__generated__/graphql";
 
 export const Mutation: MutationResolvers = {};

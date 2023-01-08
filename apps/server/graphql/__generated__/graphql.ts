@@ -51,6 +51,7 @@ export type Post = {
   createdAt: Scalars['String'];
   id: Scalars['Int'];
   updatedAt: Scalars['String'];
+  user: User;
   userId: Scalars['String'];
 };
 
@@ -82,7 +83,6 @@ export type User = {
   email: Scalars['String'];
   id: Scalars['String'];
   name?: Maybe<Scalars['String']>;
-  password: Scalars['String'];
   posts?: Maybe<Array<Maybe<Post>>>;
 };
 
@@ -187,6 +187,7 @@ export type PostResolvers<ContextType = any, ParentType extends ResolversParentT
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   id?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  user?: Resolver<ResolversTypes['User'], ParentType, ContextType>;
   userId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
@@ -202,7 +203,6 @@ export type UserResolvers<ContextType = any, ParentType extends ResolversParentT
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  password?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   posts?: Resolver<Maybe<Array<Maybe<ResolversTypes['Post']>>>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
