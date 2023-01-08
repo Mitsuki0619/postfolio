@@ -13,9 +13,9 @@ const theme = extendTheme({
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <RecoilRoot>
-        <ChakraProvider theme={theme}>
-          <Component {...pageProps} />
-        </ChakraProvider>
+      <ChakraProvider theme={theme}>
+        <Component {...pageProps} />
+      </ChakraProvider>
     </RecoilRoot>
   );
 }

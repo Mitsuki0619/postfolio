@@ -19,7 +19,7 @@ import { createContext } from "./graphql/resolvers/context";
 
   const { url } = await startStandaloneServer(server, {
     listen: { port: 4000 },
-    context: createContext
+    context: createContext,
   });
 
   console.log(`🚀  Server ready at: ${url}`);

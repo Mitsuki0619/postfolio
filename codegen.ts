@@ -12,9 +12,9 @@ const config: CodegenConfig = {
       plugins: ["introspection"],
     },
     "./apps/client/src/graphql/__generated__/graphql-operations.ts": {
-      plugins: ['typescript', 'typescript-operations', 'typed-document-node'],
-      preset: 'client',
-    }
+      plugins: ["typescript", "typescript-operations", "typed-document-node"],
+      preset: "client",
+    },
   },
 };
 
