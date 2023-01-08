@@ -13,11 +13,11 @@ export const PostForm = () => {
         p={{ base: "2", sm: "4" }}
       >
         <Flex w={"full"}>
-          <Link href={""} as={NextLink}>
-            <Box>
+          <Box>
+            <Link href={""} as={NextLink}>
               <Avatar />
-            </Box>
-          </Link>
+            </Link>
+          </Box>
           <Flex
             direction={"column"}
             justifyContent={"space-between"}

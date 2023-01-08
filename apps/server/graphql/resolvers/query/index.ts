@@ -1,4 +1,4 @@
-import { QueryResolvers } from "graphql/__generated__/graphql";
+import { QueryResolvers } from "../../__generated__/graphql";
 
 export const Query: QueryResolvers = {
   /**
@@ -34,7 +34,7 @@ export const Query: QueryResolvers = {
    */
   searchPosts: (_parent, { word }, ctx) => {
     return ctx.prisma.post.findMany({
-      where: { content: word },
+      where: { title: word },
     });
   },
 };

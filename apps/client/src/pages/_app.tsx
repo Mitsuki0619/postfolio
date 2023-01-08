@@ -18,10 +18,11 @@ const initialPreloadedQuery = getInitialPreloadedQuery({
   createClientEnvironment: () => getClientEnvironment()!,
 });
 
+export const envKey = new EnvironmentKey("My Environment");
+
 export default function App({ Component, pageProps }: AppProps) {
   const relayProps = getRelayProps(pageProps, initialPreloadedQuery);
   const env = relayProps.preloadedQuery?.environment ?? clientEnv!;
-  const envKey = new EnvironmentKey("My Environment");
 
   return (
     <RecoilRoot>

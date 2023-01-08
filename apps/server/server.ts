@@ -1,25 +1,26 @@
-import { makeExecutableSchema } from "@graphql-tools/schema";
-import express from "express";
-import { graphqlHTTP } from "express-graphql";
-import { readFileSync } from "fs";
+// The ApolloServer constructor requires two parameters: your schema
+
+import { ApolloServer } from "@apollo/server";
 import { resolvers } from "./graphql/resolvers";
+import { readFileSync } from "fs";
+import { startStandaloneServer } from "@apollo/server/standalone";
+import { createContext } from "./graphql/resolvers/context";
 
-const typeDefs = readFileSync("graphql/schema/schema.graphql", {
-  encoding: "utf8",
-});
+(async () => {
+  const typeDefs = readFileSync("./graphql/schema/schema.graphql", {
+    encoding: "utf8",
+  });
 
-export const schema = makeExecutableSchema({
-  resolvers,
-  typeDefs,
-});
+  // definition and your set of resolvers.
+  const server = new ApolloServer({
+    typeDefs,
+    resolvers,
+  });
 
-const app = express();
-app.use(
-  "/graphql",
-  graphqlHTTP({
-    schema,
-    graphiql: true,
-  })
-);
+  const { url } = await startStandaloneServer(server, {
+    listen: { port: 4000 },
+    context: createContext
+  });
 
-app.listen(4000);
+  console.log(`🚀  Server ready at: ${url}`);
+})();
