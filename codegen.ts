@@ -11,8 +11,8 @@ const config: CodegenConfig = {
     "./apps/server/graphql.schema.json": {
       plugins: ["introspection"],
     },
-    "./apps/client/src/graphql/__generated__/graphql-operations.ts": {
-      plugins: ["typescript", "typescript-operations", "typed-document-node"],
+    "./apps/client/src/graphql/__generated__/": {
+      plugins: ["typescript", "typescript-operations", "typescript-urql"],
       preset: "client",
     },
   },
