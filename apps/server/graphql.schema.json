@@ -332,7 +332,7 @@
         "description": null,
         "fields": [
           {
-            "name": "allPosts",
+            "name": "getAllPosts",
             "description": null,
             "args": [],
             "type": {
@@ -352,7 +352,7 @@
             "deprecationReason": null
           },
           {
-            "name": "postDetail",
+            "name": "getPostDetail",
             "description": null,
             "args": [
               {
@@ -385,11 +385,11 @@
             "deprecationReason": null
           },
           {
-            "name": "searchPosts",
+            "name": "getUser",
             "description": null,
             "args": [
               {
-                "name": "word",
+                "name": "userId",
                 "description": null,
                 "type": {
                   "kind": "NON_NULL",
@@ -409,24 +409,20 @@
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "Post",
-                  "ofType": null
-                }
+                "kind": "OBJECT",
+                "name": "User",
+                "ofType": null
               }
             },
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "userPosts",
+            "name": "searchPosts",
             "description": null,
             "args": [
               {
-                "name": "userId",
+                "name": "word",
                 "description": null,
                 "type": {
                   "kind": "NON_NULL",

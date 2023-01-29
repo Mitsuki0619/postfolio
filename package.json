@@ -9,7 +9,7 @@
   "scripts": {
     "build": "turbo run build lint",
     "dev": "turbo run dev",
-    "generate": "graphql-codegen",
+    "generate": "graphql-codegen --config codegen.ts",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
@@ -28,6 +28,8 @@
   "engines": {
     "node": ">=14.0.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "typescript": "^4.9.4"
+  },
   "packageManager": "yarn@1.22.18"
 }

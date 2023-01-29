@@ -15,9 +15,9 @@ type Post {
 }
 
 type Query {
-  allPosts: [Post]!
-  userPosts(userId: String!): [Post]!
-  postDetail(postId: Int!): Post!
+  getAllPosts: [Post]!
+  getUser(userId: String!): User!
+  getPostDetail(postId: Int!): Post!
   searchPosts(word: String!): [Post]!
 }
 

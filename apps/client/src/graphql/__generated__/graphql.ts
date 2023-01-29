@@ -57,25 +57,25 @@ export type Post = {
 
 export type Query = {
   __typename?: 'Query';
-  allPosts: Array<Maybe<Post>>;
-  postDetail: Post;
+  getAllPosts: Array<Maybe<Post>>;
+  getPostDetail: Post;
+  getUser: User;
   searchPosts: Array<Maybe<Post>>;
-  userPosts: Array<Maybe<Post>>;
 };
 
 
-export type QueryPostDetailArgs = {
+export type QueryGetPostDetailArgs = {
   postId: Scalars['Int'];
+};
+
+
+export type QueryGetUserArgs = {
+  userId: Scalars['String'];
 };
 
 
 export type QuerySearchPostsArgs = {
   word: Scalars['String'];
-};
-
-
-export type QueryUserPostsArgs = {
-  userId: Scalars['String'];
 };
 
 export type User = {
@@ -138,25 +138,25 @@ export type Post = {
 
 export type Query = {
   __typename?: 'Query';
-  allPosts: Array<Maybe<Post>>;
-  postDetail: Post;
+  getAllPosts: Array<Maybe<Post>>;
+  getPostDetail: Post;
+  getUser: User;
   searchPosts: Array<Maybe<Post>>;
-  userPosts: Array<Maybe<Post>>;
 };
 
 
-export type QueryPostDetailArgs = {
+export type QueryGetPostDetailArgs = {
   postId: Scalars['Int'];
+};
+
+
+export type QueryGetUserArgs = {
+  userId: Scalars['String'];
 };
 
 
 export type QuerySearchPostsArgs = {
   word: Scalars['String'];
-};
-
-
-export type QueryUserPostsArgs = {
-  userId: Scalars['String'];
 };
 
 export type User = {

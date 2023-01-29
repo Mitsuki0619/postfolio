@@ -10,12 +10,9 @@
     "types": ["node"],
     "baseUrl": "./",
     "paths": {
-      "@/*": ["*"],
-      "@Generated/*": ["./src/generated/*"],
-      "@GraphQL/*": ["./src/graphql/*"],
-      "@Resolvers/*": ["./src/graphql/resolvers/*"],
-      "@Query/*": ["./src/graphql/resolvers/query/*"],
-      "@Mutation/*": ["./src/graphql/resolvers/mutation/*"]
+      "@/*": ["./*"],
+      "@Client/*": ["./apps/client/*"],
+      "@Server/*": ["./apps/server/*"]
     }
   }
 }

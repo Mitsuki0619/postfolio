@@ -1,8 +1,9 @@
 // import { Mutation } from "./mutation";
-import { Resolvers } from "../__generated__/graphql";
+import { Resolvers } from "@Generated/graphql";
+import { Mutation } from "./mutation";
 import { Query } from "./query";
 
 export const resolvers: Resolvers = {
   Query,
-  // Mutation,
+  Mutation,
 };
