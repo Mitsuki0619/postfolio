@@ -1,6 +1,6 @@
 import { GraphQLResolveInfo } from 'graphql';
 import { Account as AccountModel, Message as MessageModel, MessageRoom as MessageRoomModel, Notification as NotificationModel, Post as PostModel, PostLikes as PostLikesModel, PostTags as PostTagsModel, Profile as ProfileModel, Session as SessionModel, Tag as TagModel, User as UserModel, VerificationToken as VerificationTokenModel } from '@prisma/client/index';
-import { Context } from '@/context';
+import { Context } from '@/src/context';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
