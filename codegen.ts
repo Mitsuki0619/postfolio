@@ -7,7 +7,7 @@ const config: CodegenConfig = {
   generates: {
     "./apps/server/src/generated/graphql.ts": {
       config: {
-        contextType: "@/context#Context",
+        contextType: "@/src/context#Context",
         mapperTypeSuffix: "Model",
         mappers: {
           Account: "@prisma/client/index#Account",
