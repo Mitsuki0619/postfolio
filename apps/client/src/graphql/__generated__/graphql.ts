@@ -32,6 +32,7 @@ export type MutationCreatePostArgs = {
 export type MutationCreateUserArgs = {
   email: Scalars['String'];
   name: Scalars['String'];
+  password: Scalars['String'];
 };
 
 
@@ -57,8 +58,8 @@ export type Post = {
 
 export type Query = {
   __typename?: 'Query';
-  getAllPosts: Array<Maybe<Post>>;
   getPostDetail: Post;
+  getPosts: Array<Maybe<Post>>;
   getUser: User;
   searchPosts: Array<Maybe<Post>>;
 };
@@ -113,6 +114,7 @@ export type MutationCreatePostArgs = {
 export type MutationCreateUserArgs = {
   email: Scalars['String'];
   name: Scalars['String'];
+  password: Scalars['String'];
 };
 
 
@@ -138,8 +140,8 @@ export type Post = {
 
 export type Query = {
   __typename?: 'Query';
-  getAllPosts: Array<Maybe<Post>>;
   getPostDetail: Post;
+  getPosts: Array<Maybe<Post>>;
   getUser: User;
   searchPosts: Array<Maybe<Post>>;
 };

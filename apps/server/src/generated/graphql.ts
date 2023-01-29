@@ -34,6 +34,7 @@ export type MutationCreatePostArgs = {
 export type MutationCreateUserArgs = {
   email: Scalars['String'];
   name: Scalars['String'];
+  password: Scalars['String'];
 };
 
 
@@ -59,8 +60,8 @@ export type Post = {
 
 export type Query = {
   __typename?: 'Query';
-  getAllPosts: Array<Maybe<Post>>;
   getPostDetail: Post;
+  getPosts: Array<Maybe<Post>>;
   getUser: User;
   searchPosts: Array<Maybe<Post>>;
 };
@@ -179,7 +180,7 @@ export type ResolversParentTypes = {
 
 export type MutationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation']> = {
   createPost?: Resolver<ResolversTypes['Post'], ParentType, ContextType, RequireFields<MutationCreatePostArgs, 'content' | 'userId'>>;
-  createUser?: Resolver<ResolversTypes['User'], ParentType, ContextType, RequireFields<MutationCreateUserArgs, 'email' | 'name'>>;
+  createUser?: Resolver<ResolversTypes['User'], ParentType, ContextType, RequireFields<MutationCreateUserArgs, 'email' | 'name' | 'password'>>;
   deletePost?: Resolver<ResolversTypes['Post'], ParentType, ContextType, RequireFields<MutationDeletePostArgs, 'id'>>;
   updatePost?: Resolver<ResolversTypes['Post'], ParentType, ContextType, RequireFields<MutationUpdatePostArgs, 'content' | 'id'>>;
 };
@@ -195,8 +196,8 @@ export type PostResolvers<ContextType = Context, ParentType extends ResolversPar
 };
 
 export type QueryResolvers<ContextType = Context, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
-  getAllPosts?: Resolver<Array<Maybe<ResolversTypes['Post']>>, ParentType, ContextType>;
   getPostDetail?: Resolver<ResolversTypes['Post'], ParentType, ContextType, RequireFields<QueryGetPostDetailArgs, 'postId'>>;
+  getPosts?: Resolver<Array<Maybe<ResolversTypes['Post']>>, ParentType, ContextType>;
   getUser?: Resolver<ResolversTypes['User'], ParentType, ContextType, RequireFields<QueryGetUserArgs, 'userId'>>;
   searchPosts?: Resolver<Array<Maybe<ResolversTypes['Post']>>, ParentType, ContextType, RequireFields<QuerySearchPostsArgs, 'word'>>;
 };
