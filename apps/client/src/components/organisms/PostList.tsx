@@ -1,7 +1,5 @@
 import { PostItem } from "components/molecules/PostItem";
 import React from "react";
-import { useRecoilValue } from "recoil";
-import { postListQuery } from "states/postList";
 
 // データ取得(例)
 const datas = [
@@ -23,9 +21,6 @@ const datas = [
 ];
 
 export const PostList = () => {
-  const postList = useRecoilValue(postListQuery);
-  console.log(postList);
-
   return (
     <>
       {datas.map((data) => (

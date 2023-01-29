@@ -1,13 +1,13 @@
 // The ApolloServer constructor requires two parameters: your schema
 
 import { ApolloServer } from "@apollo/server";
-import { resolvers } from "./graphql/resolvers";
+import { resolvers } from "@GraphQL/resolvers";
 import { readFileSync } from "fs";
 import { startStandaloneServer } from "@apollo/server/standalone";
-import { createContext } from "./graphql/resolvers/context";
+import { createContext } from "@/context";
 
 (async () => {
-  const typeDefs = readFileSync("./graphql/schema/schema.graphql", {
+  const typeDefs = readFileSync("./src/graphql/schema/schema.graphql", {
     encoding: "utf8",
   });
 
@@ -19,7 +19,7 @@ import { createContext } from "./graphql/resolvers/context";
 
   const { url } = await startStandaloneServer(server, {
     listen: { port: 4000 },
-    context: createContext
+    context: createContext,
   });
 
   console.log(`🚀  Server ready at: ${url}`);

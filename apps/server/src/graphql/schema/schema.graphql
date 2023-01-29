@@ -15,14 +15,14 @@ type Post {
 }
 
 type Query {
-  allPosts: [Post]!
-  userPosts(userId: String!): [Post]!
-  postDetail(postId: Int!): Post!
+  getPosts: [Post]!
+  getUser(userId: String!): User!
+  getPostDetail(postId: Int!): Post!
   searchPosts(word: String!): [Post]!
 }
 
 type Mutation {
-  createUser(name: String!, email: String!): User!
+  createUser(name: String!, email: String!, password: String!): User!
   createPost(content: String!, userId: String!): Post!
   updatePost(id: String!, content: String!): Post!
   deletePost(id: String!): Post!

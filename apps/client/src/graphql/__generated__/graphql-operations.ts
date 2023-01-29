@@ -47,7 +47,7 @@ export type MutationUpdatePostArgs = {
 
 export type Post = {
   __typename?: "Post";
-  content?: Maybe<Scalars["String"]>;
+  content: Scalars["String"];
   createdAt: Scalars["String"];
   id: Scalars["Int"];
   updatedAt: Scalars["String"];
@@ -80,6 +80,5 @@ export type User = {
   email: Scalars["String"];
   id: Scalars["String"];
   name?: Maybe<Scalars["String"]>;
-  password: Scalars["String"];
   posts?: Maybe<Array<Maybe<Post>>>;
 };

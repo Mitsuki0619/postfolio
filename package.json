@@ -8,11 +8,19 @@
   ],
   "scripts": {
     "build": "turbo run build lint",
-    "dev": "turbo run dev --parallel&&generate --watch",
+    "dev": "turbo run dev",
+    "generate": "graphql-codegen --config codegen.ts",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^2.16.3",
+    "@graphql-codegen/client-preset": "^1.2.5",
+    "@graphql-codegen/introspection": "^2.2.3",
+    "@graphql-codegen/typescript": "^2.8.7",
+    "@graphql-codegen/typescript-operations": "^2.5.12",
+    "@graphql-codegen/typescript-resolvers": "^2.7.12",
+    "@graphql-codegen/typescript-urql": "^3.7.3",
     "eslint-config-custom": "*",
     "prettier": "latest",
     "turbo": "latest"
@@ -20,6 +28,8 @@
   "engines": {
     "node": ">=14.0.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "typescript": "^4.9.4"
+  },
   "packageManager": "yarn@1.22.18"
 }
